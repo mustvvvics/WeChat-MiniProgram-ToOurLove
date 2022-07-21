@@ -1,8 +1,8 @@
 # 情侣专属小程序（二开版）（做任务，攒积分，换商品）
 ## 简介
-功能很简单，自己新建任务️->完成任务️->对方审核任务️->获取积分️->购买对方的商品
+功能很简单，自己新建任务️->完成任务️->对方审核任务️->获取积分️->购买对方的商品。
 
-基于原版（[UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram](https://github.com/UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram)）二次开发
+基于原版（[UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram](https://github.com/UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram)）二次开发。
 
 **新增**
 
