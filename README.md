@@ -23,9 +23,9 @@
 - 主页欢迎文字
 
 ## 效果图
->![Image](Pics/pic1.jpg)
->![Image](Pics/pic2.jpg)
-![Image](Pics/pic3.jpg)
+>![Image](./Pics/pic1.jpg)
+>![Image](./Pics/pic2.jpg)
+![Image](./Pics/pic3.jpg)
 
 ## 部署方式
 
