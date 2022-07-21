@@ -38,14 +38,14 @@
     flex-direction: column
   }
   .item-info_title {
-    font-size: 18px;
+    font-size: 15px;
   }
   .item-info_desc {
-    font-size: 10px;
+    font-size: 12px;
     color: #BDBDBD;
   }
   .item-info_date {
-    font-size: 10px;
+    font-size: 12px;
     color: #BDBDBD;
   }
   .item-info_author {

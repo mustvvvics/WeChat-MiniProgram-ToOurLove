@@ -3,7 +3,7 @@ Page({
   data: {
     title: '',
     desc: '',
-    
+    rangeArray: [0,10,20,30,40,50,60,70,80,90,100],
     credit: 0,
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
@@ -13,15 +13,15 @@ Page({
       desc:"",
     },{
       name:"早睡早起",
-      title:"晚上要早睡，明天早起",
+      title:"今晚早睡，明天早起",
       desc:"熬夜对身体很不好，还是要早点睡觉第二天才能有精神！",
     },{
       name:"打扫房间",
-      title:"清扫房间，整理整理",
+      title:"打扫房间，整理卫生",
       desc:"有一段时间没有打扫房间了，一屋不扫，何以扫天下？",
     },{
-      name:"健康运动",
-      title:"做些运动，注意身体",
+      name:"运动健身",
+      title:"做些运动，强身健体",
       desc:"做一些健身运动吧，跳绳，跑步，训练动作什么的。",
     },{
       name:"戒烟戒酒",
@@ -44,7 +44,7 @@ Page({
       title:"帮拿一天东西",
       desc:"有了我，你再也不需要移动了。拿外卖，拿零食，开空调，开电视，在所不辞。",
     },{
-      name:"制作饭菜",
+      name:"做饭",
       title:"这道美食由我完成",
       desc:"做点可口的饭菜，或者专门被指定的美食。我这个大厨，随便下，都好吃。",
     }],
@@ -63,9 +63,10 @@ Page({
     })
   },
   onCreditInput(e) {
+    const val = e.detail.value;
     this.setData({
-      credit: e.detail.value
-    })
+      credit: this.data.rangeArray[val[0]]
+    });
   },
   onPresetChange(e){
     this.setData({

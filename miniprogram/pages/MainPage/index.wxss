@@ -10,7 +10,14 @@
 }
 
 .title {
-  font-size: 12px;
+  font-size: 14px;
+  font-family: SimSun;
+}
+.nums {
+    font-size: 17px;
+    font-family: Arial;
+    font-weight: 500;
+    color: rgb(221, 111, 20);
 }
 
 .swiper-image{

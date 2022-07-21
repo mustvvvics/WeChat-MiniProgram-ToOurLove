@@ -16,7 +16,15 @@
     </view>
     <view class="form-cell">
       <view class="form-cell_title">💰积分价格</view>
-      <slider min="0" max="{{maxCredit}}" block-size="15" block-color="#353535" activeColor="#ff5794" bindchange="onCreditInput" value="{{credit}}" show-value/>
+      <!-- <picker bindchange="onCreditInput" value="{{index}}" range="{{rangeArray}}">
+        <view class="picker">{{credit}}, {{rangeArray[index]}} </view>
+        </picker> -->
+        <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" bindchange="onCreditInput">
+            <picker-view-column>
+                <view wx:for="{{rangeArray}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+      <!-- <slider min="0" max="{{maxCredit}}" block-size="15" block-color="#353535" activeColor="#ff5794" bindchange="onCreditInput" value="{{credit}}" show-value/> -->
     </view>
   </view>
 

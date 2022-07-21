@@ -11,12 +11,12 @@
     <div style="position: absolute; top: 5px; right: 10px;">💰{{credit}} 积分</div>
 </view>
 
-<swiper wx:if="{{allItems.length > 0}}" indicator-dots="true" autoplay="true" interval="2000" duration="500" 
+<!-- <swiper wx:if="{{allItems.length > 0}}" indicator-dots="true" autoplay="true" interval="2000" duration="500" 
 style="background: white; height: 200px; width: 100%;">
   <swiper-item><image src="Images/MarketCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
   <swiper-item><image src="Images/MarketCover02.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
   <swiper-item><image src="Images/MarketCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-</swiper>
+</swiper> -->
 
 <view class="container" wx:if="{{allItems.length > 0}}">
   <view class="form-group"><view class="search-bar">
@@ -71,7 +71,7 @@ style="background: white; height: 200px; width: 100%;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage"
     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <image style = "margin-top: 10px; height: 100%; width: 100%;" mode="widthFix" src="Images/Plus.png"/>商品
+      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">商品</text>
     </button>
   </movable-view>
 </movable-area>

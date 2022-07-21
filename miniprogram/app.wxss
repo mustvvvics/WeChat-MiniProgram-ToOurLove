@@ -43,7 +43,7 @@ button::after {
 
 .form-group {
   width: calc(100% - 40px);
-  margin: 10px 20px;
+  margin: 30px 20px;
   border-radius: 10px;
   background: white;
 }
@@ -53,7 +53,7 @@ button::after {
   margin-top: 20px;
   margin-left: 20px;
   color: #8D8D8D;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .form-group_label:not(:first-child) {

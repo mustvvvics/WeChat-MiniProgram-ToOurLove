@@ -1,37 +1,39 @@
 <view style="width:100%; background: none;">
 
-  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="500" style="background: white; height: 200px; width: 100%;">
-      <swiper-item><image src="Images/HomeCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="Images/HomeCover02.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="Images/HomeCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+  <swiper indicator-dots="true" indicator-color="grey" indicator-active-color="#3d84a8" autoplay="true" circular="true" interval="3000" duration="800" style="background: #F6F6F6; height: 220px; width: 100%;">
+      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
   </swiper>
 
-<view class="form-group_label">💰 积分榜</view>
+
+<view class="form-group_label">📅 每日一句</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">今天是{{userA}}和{{userB}}相恋的第<text class="nums"> {{days}} </text>天</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">{{sentences[(days)%lenOfSentences]}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group_label">💰 积分榜</view>
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
         <view class="slide">
-        <view class="title">{{userA}}的积分：{{creditA}}</view>
+        <view class="title">{{userA}}的积分：<text class="nums">{{creditA}}</text></view>
         </view>
     </view>
     <view class="form-cell">
         <view class="slide">
-        <view class="title">{{userB}}的积分：{{creditB}}</view>
+        <view class="title">{{userB}}的积分：<text class="nums">{{creditB}}</text></view>
         </view>
     </view>
 </view>
 
-<view class="form-group_label">🐻 欢迎回来</view>
-  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
-    <view class="form-cell">
-      <view class="slide">
-        <view class="title">欢迎！蓝卡比和红卡比！</view>
-      </view>
-    </view>
-    <view class="form-cell">
-      <view class="slide">
-        <view class="title">今天想做什么呢？</view>
-      </view>
-    </view>
-  </view>
 
 </view>

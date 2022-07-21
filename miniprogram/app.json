@@ -13,32 +13,32 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff99aa",
-    "navigationBarTitleText": "卡比们的任务",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#3d84a8",
+    "navigationBarTitleText": "情侣专属小程序",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#1a1a1a",
-    "selectedColor": "#ff99aa",
+    "selectedColor": "#3d84a8",
     "list": [{
       "pagePath": "pages/MainPage/index",
-      "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
-      "iconPath": "images/TabBar/HomeIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/home_selected.png",
+      "iconPath": "images/TabBar/home.png",
       "text": "首页"
     }, {
       "pagePath": "pages/Mission/index",
-      "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
-      "iconPath": "images/TabBar/MissionIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/job_selected.png",
+      "iconPath": "images/TabBar/job.png",
       "text": "任务"
     },{
       "pagePath": "pages/Market/index",
-      "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
-      "iconPath": "images/TabBar/MarketIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/mall_selected.png",
+      "iconPath": "images/TabBar/mall.png",
       "text": "商城"
     },{
       "pagePath": "pages/Account/index",
-      "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
-      "iconPath": "images/TabBar/AccountIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/store_selected.png",
+      "iconPath": "images/TabBar/store.png",
       "text": "仓库"
     }]
   },

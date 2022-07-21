@@ -38,14 +38,14 @@
   flex-direction: column
 }
 .item-info_title {
-  font-size: 18px;
+  font-size: 15px;
 }
 .item-info_desc {
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
 .item-info_date {
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
 .item-info_author {
@@ -73,8 +73,8 @@
 
 .btn-normal{
   margin: 2%;
-  color: white;
-  background-color: #3d3d3d;
+  color: #3d3d3d;
+  background-color: white;
 }
 .btn-hover{
   color: black;
@@ -82,6 +82,7 @@
 }
 
 .search-bar {
+  margin-top: 10px;
   position: relative;
   width: 100%;
   display: flex;
@@ -105,9 +106,9 @@
 
 .page-title{
     position: fixed;
-    font-size: 10px;
+    font-size: 14px;
     width: 100%;
-    height: 25px;
+    height: 35px;
     top: 0px;
     color: white;
     box-shadow: 1px 1px 10px black;

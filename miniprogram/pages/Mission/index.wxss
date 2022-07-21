@@ -40,14 +40,14 @@
   flex-direction: column
 }
 .mission-info_title {
-  font-size: 18px;
+  font-size: 15px;
 }
 .mission-info_desc {
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
 .mission-info_date {
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
 .mission-info_author {
@@ -75,8 +75,9 @@
 
 .btn-normal{
   margin: 2%;
-  color: white;
-  background-color: #3d3d3d;
+  color: #3d3d3d;
+  background-color: white;
+  font-size: 14pt;
 }
 .btn-hover{
   color: black;
