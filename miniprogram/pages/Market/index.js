@@ -2,10 +2,12 @@ Page({
   data: {
     screenWidth: 1000,
     screenHeight: 1000,
-
+    
     search: "",
     credit: 0,
     user: "",
+    chapterNum: 0,    // 集数/章节  这里不使用
+    maxChapterNum: 0, // 这里不使用
 
     allItems: [], //所有商品
     unboughtItems: [], //上架商品
@@ -20,13 +22,24 @@ Page({
       {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'}
     ],
   },
-
+  getDate(dateStr){
+    const milliseconds = Date.parse(dateStr)
+    const date = new Date()
+    date.setTime(milliseconds)
+    return date
+  },
   //页面加载时运行
   async onShow(){
     this.getCurrentCredit()
     this.getUser()
     await wx.cloud.callFunction({name: 'getList', data: {list: getApp().globalData.collectionMarketList}}).then(data => {
-      this.setData({allItems: data.result.data})
+      for(let i in data.result.data){
+        data.result.data[i].date = this.getDate(data.result.data[i].date).toDateString();
+      }
+      // console.log(data.result.data)
+      this.setData({
+        allItems: data.result.data,
+      })
       this.filterItem()
       this.getScreenSize()
     })
@@ -36,7 +49,7 @@ Page({
     await wx.cloud.callFunction({name: 'getOpenId'}).then(res => {
         if(res.result === getApp().globalData._openidA){
             this.setData({
-                user: getApp().globalData.userA,
+                user: getApp().globalData.userA, //进入商城页面上方显示的名字
             })
         }else if(res.result === getApp().globalData._openidB){
             this.setData({
@@ -77,21 +90,21 @@ Page({
     const item = isUpper ? this.data.unboughtItems[itemIndex] : this.data.boughtItems[itemIndex]
     wx.navigateTo({url: '../MarketDetail/index?id=' + item._id})
   },
-  //转到商品详情[上]
-  async toDetailPageUpper(element) {
+  //转到商品详情 货架
+  async toDetailPageUpper(element) { // 作为wxml的 bindtap
     this.toDetailPage(element, true)
   },  
-  //转到商品详情[下]
-  async toDetailPageLower(element) {
+  //转到商品详情 已售出
+  async toDetailPageLower(element) { // 作为wxml的 bindtap
     this.toDetailPage(element, false)
   },
-  //转到添加商品
-  async toAddPage() {
+  //转到添加商品        
+  async toAddPage() {   // 作为wxml的 bindtap
     wx.navigateTo({url: '../MarketAdd/index'})
   },
 
   //设置搜索
-  onSearch(element){
+  onSearch(element){    // 作为wxml 的bindinput
     this.setData({
       search: element.detail.value
     })
@@ -218,6 +231,8 @@ Page({
             credit: item.credit,
             title: item.title,
             desc: item.desc,
+            chapterNum: 0,
+            maxChapterNum: 0,
         }})
         
         //显示提示

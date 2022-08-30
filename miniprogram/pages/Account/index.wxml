@@ -1,7 +1,7 @@
 <wxs module="util" src="../util.wxs" />
 
 <view class="container white" wx:if="{{allItems.length === 0}}">
-  <image class="background" src="Images/None.png" mode="aspectFit" />
+  <image class="background" src="../Mission/Images/None.png" mode="aspectFit" />
   <view class="title">这里空空如也...</view>
   <view class="subtitle">去申请任务攒积分买点吧~</view>
 </view>
@@ -19,10 +19,13 @@
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapUpper">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
           <view class="item-info">
-            <view class="item-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="item-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 购买</view>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>
@@ -35,10 +38,13 @@
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="item-info">
-            <view class="item-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="item-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 购买</view>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>

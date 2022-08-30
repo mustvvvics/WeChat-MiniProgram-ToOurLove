@@ -1,0 +1,47 @@
+<wxs module="util" src="../util.wxs" />
+
+<view class="container white" style="animation-name: animation-blur; animation-duration: 0.8s;">
+  <image src="../../images/Mission.gif" mode='widthFix' />
+  <view class="form-group" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05); ">
+    <view class="form-cell">
+      <view class="mission-info_title">📌 笔记名称</view>
+      <view class="mission-info_desc">{{mission.title}}</view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">🌟 当前进度：  {{mission.chapterNum}}   集/章</view>
+      <progress percent="{{creditPercent}}" border-radius="5" font-size="8" duration="10" color="lightsalmon" active stroke-width="7"> 
+        <view class="mission-info_credit">{{maxCredit}} {{mission.maxChapterNum}}</view>
+      </progress>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">🌟 更改进度：  {{chapterNum_}}   集/章</view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 150px;" bindchange="onChapterNumInput">
+            <picker-view-column>
+                <view wx:for="{{Chapter_thousand}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{Chapter_hundred}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{Chapter_ten}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{Chapter_one}}" wx:key="*this" style="line-height: 50px; text-align: center;">{{item}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">📅 创建日期</view>
+      <view class="mission-info_desc">{{dateStr}} | {{util.cutStr(timeStr, 8)}}</view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">💡 笔记归属</view>
+      <view class="mission-info_desc">此笔记由{{from}}创建。</view>
+    </view>
+    <view class="form-cell">
+      <view class="mission-info_title">📝 笔记详情</view>
+      <view class="mission-info_desc">{{mission.desc}}</view>
+    </view>
+  </view>
+</view>

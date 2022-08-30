@@ -9,7 +9,7 @@
     </view>
     <view class="form-cell">
       <view class="item-info_title">💡 获取途径</view>
-      <view class="item-info_desc">此物品由{{from}}上架，由{{to}}购买。</view>
+      <view class="item-info_desc">此物品由{{from}}上架，由{{to}}兑换。</view>
     </view>
     <view class="form-cell">
       <view class="item-info_title">💰 物品价值：{{item.credit}} 积分</view>

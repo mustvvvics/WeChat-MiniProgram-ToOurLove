@@ -1,39 +1,69 @@
 <view style="width:100%; background: none;">
 
-  <swiper indicator-dots="true" indicator-color="grey" indicator-active-color="#3d84a8" autoplay="true" circular="true" interval="3000" duration="800" style="background: #F6F6F6; height: 220px; width: 100%;">
-      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="轮播图地址" mode='widthFix' class="swiper-image" /></swiper-item>
+  <swiper indicator-dots="true" indicator-color="white" indicator-active-color="#BFC8D7" autoplay="true" circular="true" interval="3000" duration="800" style="background: #F6F6F6; height: 220px; width: 100%;">
+      <swiper-item><image src="./Images/HomeCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="./Images/HomeCover02.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="./Images/HomeCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
+      <swiper-item><image src="./Images/HomeCover04.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
   </swiper>
 
 
-<view class="form-group_label">📅 每日一句</view>
-  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+<view class="form-group_label">🏩 {{time_quantum}}！我的{{userB}}宝贝~</view>
+    <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
-      <view class="slide">
-        <view class="title">今天是{{userA}}和{{userB}}相恋的第<text class="nums"> {{days}} </text>天</view>
+      <view class="slide" bindtap="toMainPageCheckDetail">
+        <view class="info">
+          <view class="title">🗓️ 纪念日</view>
+          <!-- <view class="title">已经<text class="nums_in"> {{days}} </text>天<text class="nums_in"> {{hours}} </text>时<text class="nums_in"> {{minutes}} </text>分<text class="nums_in"> {{seconds}} </text>秒啦！</view> -->
+          <view class="title_in">宝贝呀！这是我们在一起的</view>
+        </view>
+        <view class="font_right">第<text class="nums_right_in"> {{days + 1}} </text>天</view>
+        <image class="navigate_next" src="./Images/navigate_next.svg" />
       </view>
     </view>
     <view class="form-cell">
       <view class="slide">
-        <view class="title">{{sentences[(days)%lenOfSentences]}}</view>
+      <view class="title">💌 {{sentences[(days)%10]}}</view>
       </view>
     </view>
-  </view>
+      
+</view>
 
-  <view class="form-group_label">💰 积分榜</view>
+<view class="form-group_label">💖 每天想你</view>
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
         <view class="slide">
-        <view class="title">{{userA}}的积分：<text class="nums">{{creditA}}</text></view>
+        <view class="title">💝 宝贝呀，{{userB}}已经想你<text class="nums">   {{missYouB}}   </text>天啦！</view>
         </view>
     </view>
     <view class="form-cell">
         <view class="slide">
-        <view class="title">{{userB}}的积分：<text class="nums">{{creditB}}</text></view>
+        <view class="title">💖 乖乖呀，{{userA}}已经想你<text class="nums">   {{missYouA}}   </text>天啦！</view>
         </view>
     </view>
 </view>
 
+<view class="form-group_label">💰 积分明细</view>
+    <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+        <view class="slide">
+        <view class="title">👧 {{userB}}的积分：<text class="nums">{{creditB}}</text></view>
+        </view>
+    </view>
+    <view class="form-cell">
+        <view class="slide">
+        <view class="title">👦 {{userA}}的积分：<text class="nums">{{creditA}}</text></view>
+        </view>
+    </view>
+</view>
 
 </view>
+
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toMissYou"
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative; left: 0rpx; top: 0rpx">
+      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="Images/heart.png"/><text style="font-size: 14px; font-weight: 400;">想你</text>
+    </button>
+  </movable-view>
+</movable-area>

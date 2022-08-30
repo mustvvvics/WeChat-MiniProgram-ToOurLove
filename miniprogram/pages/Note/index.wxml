@@ -1,0 +1,69 @@
+<wxs module="util" src="../util.wxs" />
+
+<view class="container white" wx:if="{{allMissions.length === 0}}">
+  <image class="background" src="../Mission/Images/None.png" mode="aspectFit" />
+  <view class="title">暂无笔记</view>
+  <view class="subtitle">好像什么笔记也没有...</view>
+</view>
+
+<view class="container" wx:if="{{allMissions.length > 0}}">
+  <view class="form-group"><view class="search-bar">
+    <icon class="search-icon" type="search" size="24"></icon>
+    <input class="search-input" placeholder="搜索笔记" bindinput="onSearch" value="{{search}}" />
+  </view></view>
+
+  <view class="form-group_label">未完成<mp-badge content="{{unfinishedMissions.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{unfinishedMissions.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{unfinishedMissions}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapUpper">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
+          <view class="mission-info">
+            <view class="mission-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> {{userA}}追的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> {{userB}}追的{{util.filterStr(item.title, 10)}}</view>
+            </view>
+            <view class="mission-info_award">✨ 已观看到第 <text class="nums_in" decode="{{true}}">&nbsp;&nbsp;{{util.filterStr(item.chapterNum, 10)}}&nbsp;&nbsp;</text> 集/章</view>
+          </view>
+          <view class="mission-info_author">
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/NoteA.png"/>
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/NoteB.png"/>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+
+  <view class="form-group_label">已完成<mp-badge content="{{finishedMissions.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group" wx:if="{{finishedMissions.length > 0}}" 
+  style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell" wx:for="{{finishedMissions}}" wx:key="index">
+      <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
+        <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
+          <view class="mission-info">
+            <view class="mission-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> {{userA}}追的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> {{userB}}追的{{util.filterStr(item.title, 10)}}</view>
+            </view>
+            <view class="mission-info_award">✨ 已观看到第 <text class="nums_in" decode="{{true}}">&nbsp;&nbsp;{{util.filterStr(item.chapterNum, 10)}}&nbsp;&nbsp;</text> 集/章</view>
+          </view>
+          <view class="mission-info_author">
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/NoteA.png"/>
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/NoteB.png"/>
+          </view>
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
+        </view>
+      </mp-slideview>
+    </view>
+  </view>
+</view>
+
+<movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
+  <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage" 
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="../Mission/Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">笔记</text>
+    </button>
+  </movable-view>
+</movable-area>

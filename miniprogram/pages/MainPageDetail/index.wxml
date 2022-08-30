@@ -1,0 +1,27 @@
+<wxs module="util" src="../util.wxs" />
+
+<view class="container white" style="animation-name: animation-blur; animation-duration: 0.8s;">
+  <image src="../../images/Item.gif" mode='widthFix' />
+  <view class="form-group" style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="item-info_desc">
+        我们相爱已经<text class="nums_in"> {{days}} </text>天<text class="nums_in"> {{hours}} </text>时<text class="nums_in"> {{minutes}} </text>分<text class="nums_in"> {{seconds}} </text>秒啦！</view>
+    </view>
+    <view class="form-cell">
+    <view class="item-info_desc">
+        距离{{userA}}生日<text class="nums_in"> {{util.cutStr(birthdayA_next, 10)}} </text>还有<text class="nums_in"> {{daysA_}} </text>天！</view>
+    </view>
+    <view class="form-cell">
+    <view class="item-info_desc">
+        距离{{userB}}生日<text class="nums_in"> {{util.cutStr(birthdayB_next, 10)}} </text>还有<text class="nums_in"> {{daysB_}} </text>天！</view>
+    </view>
+    <view class="form-cell">
+    <view class="item-info_desc">
+        {{userA}}出生距今<text class="nums_in"> {{daysA}} </text>天<text class="nums_in"> {{hoursA}} </text>时<text class="nums_in"> {{minutesA}} </text>分<text class="nums_in"> {{secondsA}} </text>秒啦！</view>
+    </view>
+    <view class="form-cell">
+    <view class="item-info_desc">
+        {{userB}}出生距今<text class="nums_in"> {{daysB}} </text>天<text class="nums_in"> {{hoursB}} </text>时<text class="nums_in"> {{minutesB}} </text>分<text class="nums_in"> {{secondsB}} </text>秒啦！</view>
+    </view>
+  </view>
+</view>

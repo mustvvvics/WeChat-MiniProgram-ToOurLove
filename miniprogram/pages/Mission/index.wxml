@@ -1,17 +1,10 @@
 <wxs module="util" src="../util.wxs" />
 
 <view class="container white" wx:if="{{allMissions.length === 0}}">
-  <image class="background" src="Images/None.png" mode="aspectFit" />
+  <image class="background" src="../Mission/Images/None.png" mode="aspectFit" />
   <view class="title">暂无任务</view>
   <view class="subtitle">好像什么任务也没有...</view>
 </view>
-
-<!-- <swiper wx:if="{{allMissions.length > 0}}" indicator-dots="true" autoplay="true" interval="2000" duration="500" 
-style="height: 200px; width: 100%; background: white; ">
-      <swiper-item><image src="Images/MissionCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="Images/MissionCover02.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-      <swiper-item><image src="Images/MissionCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-</swiper> -->
 
 <view class="container" wx:if="{{allMissions.length > 0}}">
   <view class="form-group"><view class="search-bar">
@@ -26,15 +19,18 @@ style="height: 200px; width: 100%; background: white; ">
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapUpper">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
           <view class="mission-info">
-            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-            <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+            <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="mission-info_author">
-            <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png"/>
-            <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png"/>
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png"/>
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png"/>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>
@@ -47,15 +43,18 @@ style="height: 200px; width: 100%; background: white; ">
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="mission-info">
-            <view class="mission-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="mission-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-            <view class="mission-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+            <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="mission-info_author">
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png"/>
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png"/>
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MissionA.png"/>
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MissionB.png"/>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>
@@ -66,7 +65,7 @@ style="height: 200px; width: 100%; background: white; ">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage" 
     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">任务</text>
+      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="../Mission/Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">任务</text>
     </button>
   </movable-view>
 </movable-area>

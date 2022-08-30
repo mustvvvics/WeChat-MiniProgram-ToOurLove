@@ -5,11 +5,11 @@
   <view class="form-group" style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
       <view class="item-info_title">📌 商品名称</view>
-      <view class="item-info_desc">{{item.title}}</view>
+      <view class="item-info_desc">{{from_who}}发布的{{item.title}}!</view>
     </view>
     <view class="form-cell">
-      <view class="item-info_title">💡 购买关系</view>
-      <view class="item-info_desc">此商品由{{from}}上架，由{{to}}购买。</view>
+      <view class="item-info_title">💡 兑换关系</view>
+      <view class="item-info_desc">此商品由{{from}}上架，仅限我的宝贝{{to}}兑换。</view>
     </view>
     <view class="form-cell">
       <view class="item-info_title">💰 商品价值：{{item.credit}} 积分</view>

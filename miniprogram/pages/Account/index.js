@@ -49,7 +49,6 @@ Page({
       this.setData({
         search: element.detail.value
       })
-  
       this.filterItem()
     },
   
@@ -98,8 +97,8 @@ Page({
                   this.useItem(element)
               }else{
                   wx.showToast({
-                      title: '物品已被使用',
-                      icon: 'error',
+                    title: '物品已使用',
+                    icon: 'error',
                       duration: 2000
                   })
               }
@@ -134,8 +133,8 @@ Page({
           //如果编辑的不是自己的物品，显示提醒
           }else{
               wx.showToast({
-              title: '只能编辑自己的物品',
-              icon: 'error',
+              title: '我们只能编辑自己的物品噢~',
+              icon: 'none',
               duration: 2000
               })
           }
@@ -144,6 +143,12 @@ Page({
   
     //购买物品
     async useItem(element) {
+        wx.showToast({
+          title: '正在加载..',
+          icon: 'loading',
+          mask: true,
+          duration: 2000
+        }); 
         //根据序号获得物品
         const itemIndex = element.currentTarget.dataset.index
         const item = this.data.unusedItems[itemIndex]
@@ -152,11 +157,10 @@ Page({
         wx.cloud.callFunction({name: 'editAvailable', data: {_id: item._id, value: false, list: getApp().globalData.collectionStorageList}}).then(()=>{
             //显示提示
             wx.showToast({
-                title: '已使用',
+                title: '成功使用',
                 icon: 'success',
                 duration: 2000
             })
-  
             //触发显示更新
             item.available = false
             this.filterItem()

@@ -1,0 +1,31 @@
+<wxs module="util" src="../util.wxs" />
+<view class="container white" style="animation-name: animation-blur; animation-duration: 0.5s;">
+  <image src="../../images/Mission.gif" mode='widthFix' />
+  <view class="form-group" style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05); ">
+    <view class="form-cell">
+      <view class="form-cell_title">🔖选择预设</view>
+      <picker mode="selector" bindchange="onPresetChange" value="{{presetIndex}}" range="{{presets}}" range-key="name">{{presets[presetIndex].name}}</picker>
+    </view>
+    <view class="form-cell">
+      <view class="form-cell_title">📌笔记名称</view>
+      <input class="form-cell_input" placeholder="填入您待完成的内容。" placeholder-class="form-cell_placeholder" bindinput="onTitleInput" value="{{title}}" />
+    </view>
+    <view class="form-cell">
+      <view class="form-cell_title">🎇终章设置</view>
+      <input class="form-cell_input" placeholder="请填写最大集数/章节。" placeholder-class="form-cell_placeholder" bindinput="onInputMaxChapterNum" value="{{maxChapterNum}}" />
+    </view>
+    <view class="form-cell">
+      <view class="form-cell_title">🌟完成进度</view>
+      <input class="form-cell_input" placeholder="请填写当前完成集数/章节。" placeholder-class="form-cell_placeholder" bindinput="onCreditInput" value="{{chapterNum}}" />
+    </view>
+    <view class="form-cell">
+      <view class="form-cell_title">📝内容补充</view>
+      <textarea style="width: 610rpx; height: 230rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"  class="form-cell_input" placeholder="对该笔记您有什么需要补充的吗?" placeholder-class="form-cell_placeholder" bindinput="onDescInput" value="{{desc}}" />
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="reset" bindtap="resetMission">重置</view>
+    <view class="save" bindtap="saveMission">保存</view>
+  </view>
+</view>

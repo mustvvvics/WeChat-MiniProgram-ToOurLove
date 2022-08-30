@@ -3,12 +3,14 @@ Page({
   data: {
     title: '',
     desc: '',
-    rangeArray: [0,10,20,30,40,50,60,70,80,90,100],
-    credit: 0,
+    rangeArray: [0,10,20,30,40,50,60,70,80,90,100,200,300,400], // 积分数值
+    credit: 0,        // 积分
+    chapterNum: 0,    // 集数/章节 这里不使用
+    maxChapterNum: 0, // 这里不使用
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
     presets: [{
-        name:"无预设",
+        name:"暂无预设",
         title:"",
         desc:"",
     },{
@@ -16,13 +18,17 @@ Page({
         title:"零食券",
         desc:"诱人的零食，看剧绝佳伴侣！凭此商品可以向对方索要零食。",
     },{
-        name:"饮料券",
-        title:"饮料券",
-        desc:"凭此券可以向对方索要一杯饮料。",
+        name:"奶茶券",
+        title:"奶茶券",
+        desc:"凭此券可以向对方索要一杯奶茶。",
     },{
         name:"夜宵券",
         title:"夜宵券",
         desc:"凭此券可以让自己在夜里狂野干饭。",
+    },{
+        name:"外卖券",
+        title:"外卖券",
+        desc:"凭此券可以让对方为心爱的人点一次外卖！",
     },{
         name:"洗碗券",
         title:"洗碗券",
@@ -40,17 +46,9 @@ Page({
         title:"减肥券",
         desc:"凭此券可以逼迫对方做一次运动，以此来达到减肥维持健康的目的。",
     },{
-        name:"饭票",
-        title:"饭票",
-        desc:"凭此券可以让对方做一次或请一次饭，具体视情况而定。",
-    },{
         name:"礼物券",
         title:"礼物券",
         desc:"凭此券可以让对方买点小礼物，像泡泡马特什么的。",
-    },{
-        name:"跑腿券",
-        title:"跑腿券",
-        desc:"凭此券可以让对方跑腿一天，拿外卖，拿零食，开空调，开电视，在所不辞。",
     }],
     list: getApp().globalData.collectionMarketList,
   },
@@ -115,18 +113,24 @@ Page({
       })
       return
     }else{
+        wx.showToast({
+          title: '正在保存..',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        });
         await wx.cloud.callFunction({name: 'addElement', data: this.data}).then(
             () => {
                 wx.showToast({
                     title: '添加成功',
                     icon: 'success',
-                    duration: 1000
+                    duration: 500
                 })
             }
         )
         setTimeout(function () {
             wx.navigateBack()
-        }, 1000)
+        }, 500)
     }
   },
 

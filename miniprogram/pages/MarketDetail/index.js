@@ -46,11 +46,13 @@ Page({
           this.setData({
             from: getApp().globalData.userA,
             to: getApp().globalData.userB,
+            from_who: '男朋友',
           })
         }else if(this.data.item._openid === getApp().globalData._openidB){
           this.setData({
             from: getApp().globalData.userB,
             to: getApp().globalData.userA,
+            from_who: '女朋友',
           })
         }
       })

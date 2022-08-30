@@ -1,0 +1,22 @@
+.item-info_title {
+  margin-bottom: 10px;
+  font-size: medium;
+}
+
+.item-info_desc {
+  font-size: small;
+  color: darkgray;
+}
+
+.item-info_credit {
+  font-size: small;
+  color: darkgray;
+  margin-left: 10px;
+}
+
+.nums_in {
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 500;
+  color: rgb(221, 111, 20);
+}

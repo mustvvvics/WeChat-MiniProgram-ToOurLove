@@ -1,9 +1,13 @@
 {
   "pages": [
     "pages/MainPage/index",
+    "pages/MainPageDetail/index",
     "pages/Mission/index",
     "pages/MissionAdd/index",
     "pages/MissionDetail/index",
+    "pages/Note/index",
+    "pages/NoteAdd/index",
+    "pages/NoteDetail/index",
     "pages/Market/index",
     "pages/MarketAdd/index",
     "pages/MarketDetail/index",
@@ -13,13 +17,13 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#3d84a8",
-    "navigationBarTitleText": "情侣专属小程序",
+    "navigationBarBackgroundColor": "#E2D2D2",
+    "navigationBarTitleText": "To Our Loves",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#1a1a1a",
-    "selectedColor": "#3d84a8",
+    "selectedColor": "#E2D2D2",
     "list": [{
       "pagePath": "pages/MainPage/index",
       "selectedIconPath": "images/TabBar/home_selected.png",
@@ -31,6 +35,11 @@
       "iconPath": "images/TabBar/job.png",
       "text": "任务"
     },{
+      "pagePath": "pages/Note/index",
+      "selectedIconPath": "images/TabBar/Note_selected.png",
+      "iconPath": "images/TabBar/Note.png",
+      "text": "笔记"
+    }, {
       "pagePath": "pages/Market/index",
       "selectedIconPath": "images/TabBar/mall_selected.png",
       "iconPath": "images/TabBar/mall.png",

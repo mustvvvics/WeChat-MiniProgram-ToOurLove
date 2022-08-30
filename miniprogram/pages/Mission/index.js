@@ -2,12 +2,11 @@ Page({
   data: {
     screenWidth: 1000,
     screenHeight: 1000,
-
+    
     search: "",
-
-    allMissions: [],
-    unfinishedMissions: [],
-    finishedMissions: [],
+    allMissions: [],          // 所有任务
+    unfinishedMissions: [],   // 未完成任务
+    finishedMissions: [],     // 已完成任务
 
     _openidA : getApp().globalData._openidA,
     _openidB : getApp().globalData._openidB,
@@ -18,16 +17,29 @@ Page({
       {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'}
     ],
   },
-
+  // 校准时间
+  getDate(dateStr){
+    const milliseconds = Date.parse(dateStr)
+    const date = new Date()
+    date.setTime(milliseconds)
+    return date
+  },
   //页面加载时运行
   async onShow(){
+    // 这是获得所有的
     await wx.cloud.callFunction({name: 'getList', data: {list: getApp().globalData.collectionMissionList}}).then(data => {
-      this.setData({allMissions: data.result.data})
+      for(let i in data.result.data){
+        data.result.data[i].date = this.getDate(data.result.data[i].date).toDateString();
+      }
+      // console.log(data.result.data)
+      this.setData({
+        allMissions: data.result.data,
+      })
       this.filterMission()
       this.getScreenSize()
     })
   },
-
+  
   //获取页面大小
   async getScreenSize(){
     wx.getSystemInfo({
@@ -64,14 +76,12 @@ Page({
     this.setData({
       search: element.detail.value
     })
-
     this.filterMission()
   },
-
   //将任务划分为：完成，未完成
   filterMission(){
     let missionList = []
-    if(this.data.search != ""){
+    if(this.data.search != ""){ // 如果有搜索
       for(let i in this.data.allMissions){
         if(this.data.allMissions[i].title.match(this.data.search) != null){
           missionList.push(this.data.allMissions[i])
@@ -80,9 +90,8 @@ Page({
     }else{
       missionList = this.data.allMissions
     }
-
     this.setData({
-      unfinishedMissions: missionList.filter(item => item.available === true),
+      unfinishedMissions: missionList.filter(item => item.available === true),  // 用item 来表示原先查询到的missionList
       finishedMissions: missionList.filter(item => item.available === false),
     })
   },
@@ -165,7 +174,7 @@ Page({
     const mission = this.data.unfinishedMissions[missionIndex]
 
     await wx.cloud.callFunction({name: 'getOpenId'}).then(async openid => {
-      if(mission._openid != openid.result){
+      if(mission._openid != openid.result){ // 使得对方
         //完成对方任务，奖金打入对方账号
         wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
         wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})

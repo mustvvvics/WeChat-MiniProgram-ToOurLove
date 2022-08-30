@@ -1,7 +1,7 @@
 <wxs module="util" src="../util.wxs" />
 
 <view class="container white" wx:if="{{allItems.length === 0}}">
-  <image class="background" src="Images/None.png" mode="aspectFit" />
+  <image class="background" src="../Mission/Images/None.png" mode="aspectFit" />
   <view class="title">暂无商品</view>
   <view class="subtitle">好像什么商品也没有...</view>
 </view>
@@ -10,13 +10,6 @@
     <div style="position: absolute; top: 5px; left: 10px;">欢迎来到商城, {{user}}!</div>
     <div style="position: absolute; top: 5px; right: 10px;">💰{{credit}} 积分</div>
 </view>
-
-<!-- <swiper wx:if="{{allItems.length > 0}}" indicator-dots="true" autoplay="true" interval="2000" duration="500" 
-style="background: white; height: 200px; width: 100%;">
-  <swiper-item><image src="Images/MarketCover01.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-  <swiper-item><image src="Images/MarketCover02.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-  <swiper-item><image src="Images/MarketCover03.jpg" mode='widthFix' class="swiper-image" /></swiper-item>
-</swiper> -->
 
 <view class="container" wx:if="{{allItems.length > 0}}">
   <view class="form-group"><view class="search-bar">
@@ -31,36 +24,42 @@ style="background: white; height: 200px; width: 100%;">
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapUpper">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
           <view class="item-info">
-            <view class="item-info_title">{{util.filterStr(item.title, 10)}}</view>
+            <view class="item-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="item-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-            <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+            <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="item-info_author">
-            <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MarketA.png"/>
-            <image style="position: absolute; width: 100%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MarketB.png"/>
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MarketA.png"/>
+            <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MarketB.png"/>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>
   </view>
 
-  <view class="form-group_label">已下架<mp-badge content="{{boughtItems.length}}" style="margin-left: 5px;" /></view>
+  <view class="form-group_label">已售<mp-badge content="{{boughtItems.length}}" style="margin-left: 5px;" /></view>
   <view class="form-group" wx:if="{{boughtItems.length > 0}}" 
   style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell" wx:for="{{boughtItems}}" wx:key="index">
       <mp-slideview buttons="{{slideButtons}}" data-index='{{index}}' icon="{{true}}" bindbuttontap="slideButtonTapLower">
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="item-info">
-            <view class="item-info_title">{{util.filterStr(item.title, 10)}}</view>
+           <view class="item-info_title">
+              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+            </view>
             <view class="item-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
-            <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 创建</view>
+            <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="item-info_author">
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MarketA.png"/>
-              <image style="position: absolute; width:100%; bottom: 0;" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MarketB.png"/>
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidA}}" mode="widthFix" src="Images/MarketA.png"/>
+              <image style="position: absolute; width: 100%; bottom: 0; left: 16rpx; top: 19rpx" wx:if="{{item._openid === _openidB}}" mode="widthFix" src="Images/MarketB.png"/>
           </view>
-          <image wx:if="{{item.star}}" class="star" src="Images/Star.png" />
+          <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
       </mp-slideview>
     </view>
@@ -70,8 +69,8 @@ style="background: white; height: 200px; width: 100%;">
 <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
     <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toAddPage"
-    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">商品</text>
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative; left: 0rpx; top: 0rpx">
+      <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="../Mission/Images/Plus.png"/><text style="font-size: 14px; font-weight: 400;">商品</text>
     </button>
   </movable-view>
 </movable-area>
