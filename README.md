@@ -41,7 +41,8 @@
 # 2 初步的部署指南
 
 ⭐⭐初步的部署指南的结果是 commits “初步部署Fix” 版本⭐⭐
-⭐⭐其基于 idofSunChonggao 的版本 ⭐⭐
+
+⭐⭐这里的指南基于 idofSunChonggao 的版本 ⭐⭐
 
 ### 2.0 小程序注册账号以及设置相关
 
