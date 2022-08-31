@@ -114,6 +114,10 @@ git clone https://github.com/idofSunChonggao/Rainbow-Cats-Personal-WeChat-MiniPr
 ```bash
 字段 = _openid | 类型 = string | 值 = 先不填
 字段 = credit  | 类型 = number | 值 = 0
+
+⭐最新版本还需要
+字段 = day  | 类型 = number | 值 = 0
+字段 = missYou  | 类型 = number | 值 = 0
 ```
 
 <img src="README.assets/image-20220815185632544.png" alt="image-20220815185632544" style="zoom:67%;" />
