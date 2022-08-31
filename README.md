@@ -103,6 +103,16 @@ git clone https://github.com/idofSunChonggao/Rainbow-Cats-Personal-WeChat-MiniPr
 
 ⭐进入后点击数据库->在集合名称添加四个集合：`MarketList`, `MissionList`, `StorageList`, `UserList`
 
+⭐⭐⭐⭐⭐ 最新版的要添加更多集合
+
+````js
+MissionList
+MarketList
+StorageList
+UserList
+NoteList
+````
+
 <img src="README.assets/image-20220815185326705.png" alt="image-20220815185326705" style="zoom:50%;" />
 
 如下所示
@@ -151,7 +161,7 @@ module.exports = {
 
 ⭐右键点击 cloudfunctions 中的每个文件夹并选择云函数云端安装依赖上传 (不上传 node_modules), 一共九个。
 
-⭐⭐⭐⭐⭐ 最新版本的要上传更多
+⭐⭐⭐⭐⭐ 最新版本的要上传更多，而wx小程序有限制数量，所以需要开个套餐
 
 ![image-20220815190529564](README.assets/image-20220815190529564.png)
 
