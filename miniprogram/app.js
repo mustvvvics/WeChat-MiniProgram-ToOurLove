@@ -15,7 +15,7 @@ App({
       birthdayA: '2000/01/01 00:00:00',
       birthdayB: '2000/01/01 00:00:00',       // 新历出生
       birthdayA_next: '2023/01/01 00:00:00',  
-      birthdayB_next: '2023/01/01 00:00:00',  // 每年农历生日
+      birthdayB_next: '2023/01/01 00:00:00',  // 每年生日
 
       //用于存储待办记录的集合名称
       collectionMissionList: 'MissionList',
