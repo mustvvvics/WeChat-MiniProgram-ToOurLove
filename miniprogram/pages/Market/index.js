@@ -8,6 +8,7 @@ Page({
     user: "",
     chapterNum: 0,    // 集数/章节  这里不使用
     maxChapterNum: 0, // 这里不使用
+    missionPattern: 0, // 任务模式 这里不使用
 
     allItems: [], //所有商品
     unboughtItems: [], //上架商品
@@ -233,6 +234,7 @@ Page({
             desc: item.desc,
             chapterNum: 0,
             maxChapterNum: 0,
+            missionPattern: 0,
         }})
         
         //显示提示

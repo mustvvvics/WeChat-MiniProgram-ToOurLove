@@ -23,7 +23,7 @@
               <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
               <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
             </view>
-            <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 购买</view>
+            <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 购买</view>
           </view>
           <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>
@@ -42,7 +42,7 @@
               <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
               <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
             </view>
-            <view class="item-info_date">📅 {{util.cutStr(item.date, 10)}} 购买</view>
+            <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 购买</view>
           </view>
           <image wx:if="{{item.star}}" class="star" src="../Mission/Images/Star.png" />
         </view>

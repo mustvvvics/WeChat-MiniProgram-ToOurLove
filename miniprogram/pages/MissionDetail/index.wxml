@@ -10,7 +10,8 @@
     </view>
     <view class="form-cell">
       <view class="mission-info_title">💡 执行计划</view>
-      <view class="mission-info_desc">此任务由{{from}}申请执行，由{{to}}监督确认。</view>
+      <view class="mission-info_desc" wx:if="{{missionPattern == 1}}">此任务是{{from}}申请，由{{from}}执行，需{{to}}监督确认。</view>
+      <view class="mission-info_desc" wx:if="{{missionPattern == 2}}">此任务是{{from}}申请，由{{to}}执行，需{{from}}监督确认。</view>
     </view>
     <view class="form-cell">
       <view class="mission-info_title">💰 奖励力度：{{mission.credit}} 积分</view>

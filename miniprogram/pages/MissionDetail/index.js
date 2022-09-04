@@ -8,6 +8,7 @@ Page({
     creditPercent: 0,
     from: '',
     to: '',
+    missionPattern: 0,
     maxCredit: getApp().globalData.maxCredit,
     list: getApp().globalData.collectionMissionList,
   },
@@ -40,6 +41,7 @@ Page({
           dateStr: this.getDate(data.result.data[0].date).toDateString(),
           timeStr: this.getDate(data.result.data[0].date).toTimeString(),
           creditPercent: (data.result.data[0].credit / getApp().globalData.maxCredit) * 100,
+          missionPattern: data.result.data[0].missionPattern,
         })
 
         //确定任务关系并保存到本地

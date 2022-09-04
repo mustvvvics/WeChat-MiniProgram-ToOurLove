@@ -8,8 +8,7 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (context) => {
-  // 根据待办的 _id 找到并返回整个数据
   return await db.collection(context.list).where({
-    _id: context._id
+    _id: context._id  // 根据待办的 _id 找到并返回整个数据
   }).get()
 }

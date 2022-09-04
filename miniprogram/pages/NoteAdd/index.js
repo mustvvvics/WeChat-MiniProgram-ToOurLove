@@ -6,6 +6,7 @@ Page({
     credit: 0,
     chapterNum: '',    // 集数/章节
     maxChapterNum: '', // 最大
+    missionPattern: 0, // 任务模式 这里不使用
     presetIndex: 0,
     presets: [{
       name:"暂无预设",

@@ -20,8 +20,10 @@
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
           <view class="mission-info">
             <view class="mission-info_title">
-              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
-              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA && item.missionPattern == 1}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB && item.missionPattern == 1}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA && item.missionPattern == 2}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}(🔑女友限定)</view>
+              <view wx:if="{{item._openid === _openidB && item.missionPattern == 2}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}(🔒男友限定)</view>
             </view>
             <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
             <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
@@ -44,8 +46,10 @@
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="mission-info">
             <view class="mission-info_title">
-              <view wx:if="{{item._openid === _openidA}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
-              <view wx:if="{{item._openid === _openidB}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA && item.missionPattern == 1}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB && item.missionPattern == 1}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA && item.missionPattern == 2}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}(🔑女友限定)</view>
+              <view wx:if="{{item._openid === _openidB && item.missionPattern == 2}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}(🔒男友限定)</view>
             </view>
             <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
             <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>

@@ -7,6 +7,7 @@ Page({
     allMissions: [],          // 所有任务
     unfinishedMissions: [],   // 未完成任务
     finishedMissions: [],     // 已完成任务
+    missionPattern: 1,
 
     _openidA : getApp().globalData._openidA,
     _openidB : getApp().globalData._openidB,
@@ -173,30 +174,64 @@ Page({
     const missionIndex = element.currentTarget.dataset.index
     const mission = this.data.unfinishedMissions[missionIndex]
 
-    await wx.cloud.callFunction({name: 'getOpenId'}).then(async openid => {
-      if(mission._openid != openid.result){ // 使得对方
-        //完成对方任务，奖金打入对方账号
-        wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
-        wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
+    await wx.cloud.callFunction({name: 'getOpenId'}).then(async openid => {  // 从云端获得 _opneid 保存到res
+      // 从云端获取missionPattern 保存在 data.result.data[0].missionPattern
+      await wx.cloud.callFunction({name: 'getMissionPattern', data: {_id: mission._id, list: getApp().globalData.collectionMissionList}}).then(async data => {  
+        // 如果任务是 对方创建的 且 模式是 “给自己的任务”
+        if(mission._openid != openid.result && data.result.data[0].missionPattern == 1){ 
+          // eg:女朋友发布任务mission._openid，男朋友openid.result确认女朋友完成了任务，积分加到女朋友账号mission._openid
+          wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
+          wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
 
-        //触发显示更新
-        mission.available = false
-        this.filterMission()
+          //触发显示更新
+          mission.available = false
+          this.filterMission()
 
-        //显示提示
-        wx.showToast({
-            title: '任务完成',
-            icon: 'success',
+          //显示提示
+          wx.showToast({
+              title: '任务完成',
+              icon: 'success',
+              duration: 2000
+          })
+
+        }
+        // 如果任务是 自己创建的 且 模式是 “给对方的任务”
+        else if(mission._openid == openid.result && data.result.data[0].missionPattern == 2){
+          // eg:女朋友发布任务mission._openid，女朋友openid.result确认男朋友完成了任务，积分加到男朋友账号
+          wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
+            if (openid.result == this.data._openidB) {  // 打开页面的是女生，则加到男朋友账号
+              wx.cloud.callFunction({name: 'editCredit', data: {_openid: this.data._openidA, value: mission.credit, list: getApp().globalData.collectionUserList}})
+            }
+            else if (openid.result == this.data._openidA) { // 打开页面的是男生，则加到女朋友账号
+              wx.cloud.callFunction({name: 'editCredit', data: {_openid: this.data._openidB, value: mission.credit, list: getApp().globalData.collectionUserList}})
+            }
+            else {
+              wx.showToast({
+                title: '发生错误',
+                icon: 'error',
+                duration: 2000
+              })
+            }
+            //触发显示更新
+            mission.available = false
+            this.filterMission()
+
+            //显示提示
+            wx.showToast({
+                title: '任务完成',
+                icon: 'success',
+                duration: 2000
+            })
+        }
+        else{
+          wx.showToast({
+            title: '不能确认此任务',
+            icon: 'error',
             duration: 2000
-        })
+          })
+        }
 
-      }else{
-        wx.showToast({
-          title: '不能完成自己的任务',
-          icon: 'error',
-          duration: 2000
-        })
-      }
+      })
     })
   },
 })

@@ -3,12 +3,14 @@ Page({
   data: {
     title: '',
     desc: '',
-    rangeArray: [0,10,20,30,40,50,60,70,80,90,100],
+    rangeArray: [0,1,5,10,20,30,40,50,60,70,80,90,100],
     credit: 0,        // 积分
     chapterNum: 0,    // 集数/章节 这里不使用
     maxChapterNum: 0, // 这里不使用
+    missionPattern: 1, // 任务模式
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
+    missionPatternIndex: 0,
     presets: [{
       name:"暂无预设",
       title:"",
@@ -29,6 +31,13 @@ Page({
       name:"我来做饭",
       title:"我来做饭",
       desc:"做点可口的饭菜，或者专门被指定的美食。我这个大厨，随便下，都好吃。",
+    }],
+    missionPatterns: [{
+      name:"我的任务，你来监督",      // 对方监督自己完成，自己加到自己
+      missionPattern: 1,
+    },{
+      name:"你的任务，我来监督",      // 自己监督对方完成，积分加到对方
+      missionPattern: 2,
     }],
     list: getApp().globalData.collectionMissionList,
   },
@@ -55,6 +64,12 @@ Page({
       presetIndex: e.detail.value,
       title: this.data.presets[e.detail.value].title,
       desc: this.data.presets[e.detail.value].desc,
+    })
+  },
+  onMissionPatternChange(e){
+    this.setData({
+      missionPatternIndex: e.detail.value,
+      missionPattern: this.data.missionPatterns[e.detail.value].missionPattern,
     })
   },
 

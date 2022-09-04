@@ -8,9 +8,9 @@ Page({
     allMissions: [],          // 所有笔记
     unfinishedMissions: [],   // 未完成笔记
     finishedMissions: [],     // 已完成笔记
+    
     userA: getApp().globalData.userA,
     userB: getApp().globalData.userB,
-    
     _openidA : getApp().globalData._openidA,
     _openidB : getApp().globalData._openidB,
     // ToOurLoves\miniprogram\miniprogram_npm\weui-miniprogram\slideview\Images 里修改

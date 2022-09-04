@@ -6,9 +6,27 @@
 
 且感谢初版（[UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram](https://github.com/UxxHans/Rainbow-Cats-Personal-WeChat-MiniProgram)）！
 
+⭐ 如果本仓库对您有所帮助，您的fork或star就是对我最大的鼓励，谢谢！
+
+## v22.0.0
+
 改了还蛮多的，具体看界面展示吧~
 
 零前端基础，全凭爱意。代码存在诸多不足和bug，仅供参考。
+
+## v22.1.0
+
+⭐ 增加任务类型选择：（任务可以发给自己，也可以发给对方）
+
+发布者**from**：
+
+​	我**from**的任务，你**to**来监督： （对方监督自己完成）
+
+​		此任务是**from**申请，由**from**执行，需**to**监督确认。
+
+​	你to**的任务，我from**来监督： （自己监督对方完成）
+
+​		此任务是**from**申请，由**to**执行，需**from**监督确认。
 
 ---
 
@@ -19,6 +37,20 @@
 ![image-20220831015952144](README.assets/image-20220831015952144.png)
 
 ## 1.2 任务
+
+
+
+v22.1.0
+
+
+
+![image-20220905015815570](README.assets/image-20220905015815570.png)
+
+
+
+v22.0.0
+
+
 
 ![image-20220831003156168](README.assets/image-20220831003156168.png)
 

@@ -15,7 +15,13 @@ Page({
             {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'}
         ],
     },
-    
+    // 校准时间
+    getDate(dateStr){
+      const milliseconds = Date.parse(dateStr)
+      const date = new Date()
+      date.setTime(milliseconds)
+      return date
+    },
     //页面加载时运行
     async onShow(){
         await wx.cloud.callFunction({name: 'getOpenId'}).then(async res => {
@@ -23,7 +29,12 @@ Page({
                 list: getApp().globalData.collectionStorageList,
                 _openid: res.result
             }}).then(async data => {
-                this.setData({allItems: data.result.data})
+                for(let i in data.result.data){
+                  data.result.data[i].date = this.getDate(data.result.data[i].date).toDateString();
+                }
+                this.setData({
+                  allItems: data.result.data
+                })
                 this.filterItem()
             })
         })

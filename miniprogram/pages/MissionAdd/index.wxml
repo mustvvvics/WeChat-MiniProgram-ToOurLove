@@ -7,6 +7,10 @@
       <picker mode="selector" bindchange="onPresetChange" value="{{presetIndex}}" range="{{presets}}" range-key="name">{{presets[presetIndex].name}}</picker>
     </view>
     <view class="form-cell">
+      <view class="form-cell_title">🪶任务模式</view>
+      <picker mode="selector" bindchange="onMissionPatternChange" value="{{missionPatternIndex}}" range="{{missionPatterns}}" range-key="name">{{missionPatterns[missionPatternIndex].name}}</picker>
+    </view>
+    <view class="form-cell">
       <view class="form-cell_title">📌任务名称</view>
       <input class="form-cell_input" placeholder="任务名是什么?" placeholder-class="form-cell_placeholder" bindinput="onTitleInput" value="{{title}}" />
     </view>

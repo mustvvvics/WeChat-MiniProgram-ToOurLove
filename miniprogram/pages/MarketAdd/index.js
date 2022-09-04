@@ -7,6 +7,7 @@ Page({
     credit: 0,        // 积分
     chapterNum: 0,    // 集数/章节 这里不使用
     maxChapterNum: 0, // 这里不使用
+    missionPattern: 0, // 任务模式 这里不使用
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
     presets: [{

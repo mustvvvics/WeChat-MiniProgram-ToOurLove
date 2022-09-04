@@ -29,7 +29,7 @@
       
 </view>
 
-<view class="form-group_label">💖 每天想你</view>
+<view class="form-group_label">💞 每天想你</view>
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
         <view class="slide">
@@ -47,12 +47,12 @@
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
         <view class="slide">
-        <view class="title">👧 {{userB}}的积分：<text class="nums">{{creditB}}</text></view>
+        <view class="title">👩🏻 {{userB}}的积分：<text class="nums">{{creditB}}</text></view>
         </view>
     </view>
     <view class="form-cell">
         <view class="slide">
-        <view class="title">👦 {{userA}}的积分：<text class="nums">{{creditA}}</text></view>
+        <view class="title">🧑🏻 {{userA}}的积分：<text class="nums">{{creditA}}</text></view>
         </view>
     </view>
 </view>
