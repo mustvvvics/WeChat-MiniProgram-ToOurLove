@@ -61,7 +61,7 @@
 
 <movable-area style="pointer-events: none; position: fixed; width: 100%; height: 100%;">
   <movable-view style="pointer-events: auto; width: 20%; height: 20%;" x="{{screenWidth}}" y="{{screenHeight}}" direction="all">
-    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toMissYou"
+    <button class="btn-normal" hover-class="btn-hover" size="mini" bindtap="toMissYou" disabled="{{missYouBtnDisable}}"
     style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: relative; left: 0rpx; top: 0rpx">
       <image style = "margin-top: 10px; height: 80%; width: 80%;" mode="widthFix" src="Images/heart.png"/><text style="font-size: 14px; font-weight: 400;">想你</text>
     </button>
