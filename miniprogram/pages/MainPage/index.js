@@ -19,6 +19,7 @@ Page({
         days: 0,
         sentences: getApp().globalData.sentences,
         lenOfSentences: 0,
+        missYouBtnDisable: false,
     },
     async onShow(){
         this.setData({
@@ -97,12 +98,13 @@ Page({
                     title: '我也想你呀宝贝',
                     icon: 'success',
                     duration: 2000
-                })
+                }).then(()=>{this.setData({missYouBtnDisable: false})})
             }
         )
     },
     // 每天想你 async异步特性
     async toMissYou() { // 28 != 29 可以点击
+        this.setData({missYouBtnDisable: true})
         wx.showToast({
             title: '正在加载..',
             icon: 'loading',
@@ -114,6 +116,7 @@ Page({
             // 对_openidA 数据进行更改
             if (openid.result == getApp().globalData._openidA) {
                 if (this.data.day > 0 && this.data.day != this.data.dayA) {
+                    this.setData({dayA: this.data.day})
                     this.changeMissYou(openid.result)
                 }
                 else {  // 29 = 29
@@ -121,12 +124,13 @@ Page({
                         title: '已经完成啦',
                         icon: 'error',
                         duration: 1000
-                    })
+                    }).then(()=>{this.setData({missYouBtnDisable: false})})
                 }                
             }
             // 对_openidB 数据进行更改
             else if (openid.result == getApp().globalData._openidB) {
                 if (this.data.day > 0 && this.data.day != this.data.dayB) {
+                    this.setData({dayB: this.data.day})
                     this.changeMissYou(openid.result)
                 }
                 else {  // 29 = 29
@@ -134,7 +138,7 @@ Page({
                         title: '已经完成啦',
                         icon: 'error',
                         duration: 1000
-                    })
+                    }).then(()=>{this.setData({missYouBtnDisable: false})})
                 }
             }
         })
